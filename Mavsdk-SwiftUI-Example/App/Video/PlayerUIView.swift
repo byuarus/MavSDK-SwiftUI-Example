@@ -20,12 +20,12 @@ class PlayerUIView: UIView {
         super.init(frame: frame)
         self.backgroundColor = .lightGray
        
-        fetchVideoStream()
+        //fetchVideoStream()
     }
     
     func fetchVideoStream() {
         Mavsdk.sharedInstance.drone.camera.videoStreamInfo
-            .take(1)
+            //.take(1)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { value in
                 print("+DC+ videoStreamInfo \(value)")

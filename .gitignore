@@ -1,0 +1,7 @@
+**/*.xcodeproj/**/*.xccheckout
+**/*.xcodeproj/**/*.xcuserstate
+**/*.xcodeproj/**/xcuserdata
+**/*.xcodeproj/xcuserdata
+**/*.xcworkspace/**/*.xcscmblueprint
+**/*.xcworkspace/xcuserdata
+.DS_Store
