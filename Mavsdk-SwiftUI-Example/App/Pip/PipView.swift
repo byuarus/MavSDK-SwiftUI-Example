@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PipView: View {
     @Environment(\.colorScheme) var colorScheme
-    @ObservedObject var core = PipViewModel()
+    @ObservedObject var mavsdk = mavsdkDrone
     
     @Binding var isVideo: Bool
     
@@ -43,8 +43,8 @@ struct PipView: View {
 
             HStack {
               Image(systemName: "circlebadge.fill")
-                .foregroundColor(core.isConnected ? .green : Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.75)) )
-                Text(core.isConnected ? "Connected" : "Disconnected")
+                .foregroundColor(mavsdk.isConnected ? .green : Color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 0.75)) )
+                Text(mavsdk.isConnected ? "Connected" : "Disconnected")
                     .font(.system(size: 16.0, weight: .semibold, design: .monospaced))
                     .foregroundColor(.gray)
                 Spacer()

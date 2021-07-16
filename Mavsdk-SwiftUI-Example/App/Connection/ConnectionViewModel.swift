@@ -1,17 +1,18 @@
 //
-//  PipViewModel.swift
+//  ConnectionViewModel.swift
 //  Mavsdk-SwiftUI-Example
 //
-//  Created by Douglas on 14/05/21.
+//  Created by Dmytro Malakhov on 7/12/21.
 //
 
 import Foundation
-import RxSwift
 import Mavsdk
+import MavsdkServer
+import RxSwift
 import Combine
 
-final class PipViewModel: ObservableObject {
-    @Published private(set) var isConnected = false
+final class ConnectionViewModel: ObservableObject {
+    @Published var isConnected = false
     
     let disposeBag = DisposeBag()
     var droneCancellable = AnyCancellable {}
@@ -22,8 +23,9 @@ final class PipViewModel: ObservableObject {
     }
     
     func observeDroneConnectionState(drone: Drone) {
-        drone.core.connectionState
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .default))
+        drone
+            .core.connectionState
+            .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (state) in
                 self.isConnected = state.isConnected

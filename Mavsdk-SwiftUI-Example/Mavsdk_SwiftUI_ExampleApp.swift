@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+var mavsdkDrone = MavsdkDrone()
+
 @main
 struct Mavsdk_SwiftUI_ExampleApp: App {
     var body: some Scene {

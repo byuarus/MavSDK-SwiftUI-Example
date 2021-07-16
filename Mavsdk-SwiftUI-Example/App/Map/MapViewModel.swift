@@ -7,18 +7,21 @@
 
 import Foundation
 import RxSwift
+import Mavsdk
+import Combine
 
 final class MapViewModel: ObservableObject {
     @Published private(set) var droneLocation = Location(latitude: 37.4135427, longitude: -121.99655, angle: 0.0)
     
-    lazy var drone = Mavsdk.sharedInstance.drone
     let disposeBag = DisposeBag()
+    var droneCancellable = AnyCancellable {}
     
     init() {
-        observeDroneLocation()
+        self.droneCancellable = mavsdkDrone.$drone.compactMap{$0}
+            .sink{ self.observeDroneLocation(drone: $0) }
     }
     
-    func observeDroneLocation() {
+    func observeDroneLocation(drone: Drone) {
         Observable.combineLatest(drone.telemetry.attitudeEuler, drone.telemetry.position)
             .observeOn(MainScheduler.instance)
             .distinctUntilChanged({ (angle, position) in

@@ -10,7 +10,7 @@ import Mavsdk
 
 class SiteScanMavsdk: ObservableObject {
     
-    var drone: Drone = Mavsdk.sharedInstance.drone
+    var drone: Drone = mavsdkDrone.drone!
     var disposeBag = DisposeBag()
     
     // Vars for preflight check

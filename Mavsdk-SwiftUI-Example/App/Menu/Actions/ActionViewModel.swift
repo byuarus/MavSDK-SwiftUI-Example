@@ -6,10 +6,11 @@
 //
 
 import Foundation
+import Mavsdk
 import RxSwift
 
 final class ActionViewModel: ObservableObject {
-    lazy var drone = Mavsdk.sharedInstance.drone
+    lazy var drone = mavsdkDrone.drone
     let messageViewModel = MessageViewModel.shared
     let disposeBag = DisposeBag()
     
@@ -27,7 +28,7 @@ final class ActionViewModel: ObservableObject {
     init() {}
     
     func armAction() {
-        drone.action.arm()
+        drone!.action.arm()
             .subscribe {
                 self.messageViewModel.message = "Armed"
             } onError: { (error) in
@@ -37,7 +38,7 @@ final class ActionViewModel: ObservableObject {
     }
     
     func disarmAction() {
-        drone.action.disarm()
+        drone!.action.disarm()
             .subscribe {
                 self.messageViewModel.message = "Disarmed"
             } onError: { (error) in
@@ -47,7 +48,7 @@ final class ActionViewModel: ObservableObject {
     }
     
     func takeOffAction() {
-        drone.action.takeoff()
+        drone!.action.takeoff()
             .subscribe {
                 self.messageViewModel.message = "Taking Off"
             } onError: { (error) in
@@ -57,7 +58,7 @@ final class ActionViewModel: ObservableObject {
     }
     
     func landAction() {
-        drone.action.land()
+        drone!.action.land()
             .subscribe {
                 self.messageViewModel.message = "Landing"
             } onError: { (error) in
@@ -67,7 +68,7 @@ final class ActionViewModel: ObservableObject {
     }
     
     func rtlAction() {
-        drone.action.returnToLaunch()
+        drone!.action.returnToLaunch()
             .subscribe {
                 self.messageViewModel.message = "RTL"
             } onError: { (error) in
@@ -77,7 +78,7 @@ final class ActionViewModel: ObservableObject {
     }
     
     func setRTLAltitude() {
-        drone.action.setReturnToLaunchAltitude(relativeAltitudeM: 40)
+        drone!.action.setReturnToLaunchAltitude(relativeAltitudeM: 40)
             .subscribe(onCompleted: {
                 self.messageViewModel.message = "Set RTL Altitude"
             }, onError: { (error) in

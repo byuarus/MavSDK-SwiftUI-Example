@@ -8,30 +8,37 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State private var selectedColorIndex = 0
+    @State private var selectedTabIndex = 0
+    @ObservedObject var mavsdk = mavsdkDrone
     
     var body: some View {
         VStack {
-            Picker("Item", selection: $selectedColorIndex, content: {
-                Image(systemName: "antenna.radiowaves.left.and.right").tag(0)
-                Image(systemName: "play").tag(1)
-                Image(systemName: "point.topleft.down.curvedto.point.bottomright.up").tag(2)
-                Image(systemName: "camera").tag(3)
-                Image(systemName: "chevron.up").tag(4)
-            })
-            .pickerStyle(SegmentedPickerStyle())
+            if mavsdk.serverStarted {
+                Picker("Item", selection: $selectedTabIndex, content: {
+                    Image(systemName: "arrow.up.arrow.down").tag(0)
+                    Image(systemName: "antenna.radiowaves.left.and.right").tag(1)
+                    Image(systemName: "play").tag(2)
+                    Image(systemName: "point.topleft.down.curvedto.point.bottomright.up").tag(3)
+                    Image(systemName: "camera").tag(4)
+                    Image(systemName: "chevron.up").tag(5)
+                })
+                .pickerStyle(SegmentedPickerStyle())
+            }
             
-            switch selectedColorIndex {
+            switch selectedTabIndex {
             case 0:
+                ConnectionView()
+                    .navigationBarTitle("Connection")
+            case 1:
                 TelemetryView()
                     .navigationBarTitle("Telemetry")
-            case 1:
+            case 2:
                 ActionList()
                     .navigationBarTitle("Actions")
-            case 2:
+            case 3:
                 MissionView()
                     .navigationBarTitle("Mission")
-            case 3:
+            case 4:
                 CameraView()
                     .navigationBarTitle("Camera")
             default:

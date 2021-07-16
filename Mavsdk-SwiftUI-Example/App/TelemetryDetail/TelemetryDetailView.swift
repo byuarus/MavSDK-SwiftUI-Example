@@ -28,12 +28,9 @@ struct TelemetryDetailView: View {
     }
 }
 
-struct TelemetryView_Previews: PreviewProvider {
+struct TelemetryDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
-            TelemetryView()
-                .previewLayout(.fixed(width: 896, height: 100))
-        }
+        TelemetryDetailView()
     }
 }
 

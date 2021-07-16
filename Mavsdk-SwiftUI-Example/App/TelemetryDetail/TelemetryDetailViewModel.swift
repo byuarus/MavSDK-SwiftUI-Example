@@ -7,20 +7,23 @@
 
 import Foundation
 import RxSwift
+import Mavsdk
+import Combine
 
 final class TelemetryDetailViewModel: ObservableObject {
     @Published private(set) var altitude = 0
     @Published private(set) var battery = 0
     @Published private(set) var photosTaken = 0
     
-    lazy var drone = Mavsdk.sharedInstance.drone
     let disposeBag = DisposeBag()
+    var droneCancellable = AnyCancellable {}
     
     init() {
-        observeDroneTelemetry()
+        self.droneCancellable = mavsdkDrone.$drone.compactMap{$0}
+            .sink{ self.observeDroneTelemetry(drone: $0) }
     }
     
-    func observeDroneTelemetry() {
+    func observeDroneTelemetry(drone: Drone) {
         drone.telemetry.position
             .observeOn(MainScheduler.instance)
             .throttle(.seconds(1), scheduler: MainScheduler.instance)

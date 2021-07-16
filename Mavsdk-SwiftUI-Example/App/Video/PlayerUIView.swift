@@ -10,22 +10,31 @@ import AVKit
 import Mavsdk
 import MavsdkServer
 import RxSwift
+import Combine
 
 class PlayerUIView: UIView {
     var rtspView: RTSPView!
     
     let disposeBag = DisposeBag()
+    var droneCancellable = AnyCancellable {}
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.backgroundColor = .lightGray
        
-        //fetchVideoStream()
+        self.droneCancellable = mavsdkDrone.$isConnected
+            .sink {
+                if $0 {
+                    self.fetchVideoStream()
+                } else if self.rtspView != nil && self.rtspView.isPlaying {
+                    self.rtspView.stopPlaying()
+                }
+            }
     }
     
     func fetchVideoStream() {
-        Mavsdk.sharedInstance.drone.camera.videoStreamInfo
-            //.take(1)
+        mavsdkDrone.drone?.camera.videoStreamInfo
+            .take(1)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { value in
                 print("+DC+ videoStreamInfo \(value)")
@@ -49,7 +58,7 @@ class PlayerUIView: UIView {
         rtspView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0).isActive = true
         rtspView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0).isActive = true
 
-        self.rtspView.startPlaying(videoPath: newPath, usesTcp: isSimulator)
+        self.rtspView.startPlaying(videoPath: newPath, usesTcp: false)
     }
     
     required init?(coder: NSCoder) {

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A4BB6D44269CF86100D23FEE /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB6D43269CF86100D23FEE /* ConnectionView.swift */; };
+		A4BB6D47269D122900D23FEE /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB6D46269D122900D23FEE /* ConnectionViewModel.swift */; };
+		A4BB6D4B269D449C00D23FEE /* CommLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB6D4A269D449C00D23FEE /* CommLinkView.swift */; };
 		A53C5F5A2658559B0076CFF0 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A53C5F592658559B0076CFF0 /* MessageViewModel.swift */; };
 		A54C358D2656FE13007678CD /* SiteScanMavsdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C358C2656FE13007678CD /* SiteScanMavsdk.swift */; };
 		A54C359626571189007678CD /* SiteScanViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C359526571189007678CD /* SiteScanViewModel.swift */; };
@@ -20,7 +23,7 @@
 		A54C35C126584A91007678CD /* TelemetryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A54C35C026584A91007678CD /* TelemetryDetailViewModel.swift */; };
 		A55F21AC264DE55E00659CD9 /* PipView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F21AB264DE55E00659CD9 /* PipView.swift */; };
 		A55F21B4264DE5BF00659CD9 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F21B3264DE5BF00659CD9 /* MapView.swift */; };
-		A55F21BB264DE61600659CD9 /* Mavsdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F21BA264DE61600659CD9 /* Mavsdk.swift */; };
+		A55F21BB264DE61600659CD9 /* MavsdkDrone.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F21BA264DE61600659CD9 /* MavsdkDrone.swift */; };
 		A55F21C0264DE65000659CD9 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F21BF264DE65000659CD9 /* Location.swift */; };
 		A55F21C8264E09BC00659CD9 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F21C7264E09BC00659CD9 /* MenuView.swift */; };
 		A55F21CD264E0F8100659CD9 /* ActionList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A55F21CC264E0F8100659CD9 /* ActionList.swift */; };
@@ -45,24 +48,10 @@
 		C5E155E4265C698200D0A9FB /* RTSPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C5E155E1265C698200D0A9FB /* RTSPView.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		A5F70BA0264DDDC40017AFC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A5F70B86264DDDC20017AFC1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A5F70B8D264DDDC20017AFC1;
-			remoteInfo = "Mavsdk-SwiftUI-Example";
-		};
-		A5F70BAB264DDDC40017AFC1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A5F70B86264DDDC20017AFC1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A5F70B8D264DDDC20017AFC1;
-			remoteInfo = "Mavsdk-SwiftUI-Example";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		A4BB6D43269CF86100D23FEE /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		A4BB6D46269D122900D23FEE /* ConnectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
+		A4BB6D4A269D449C00D23FEE /* CommLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommLinkView.swift; sourceTree = "<group>"; };
 		A53C5F592658559B0076CFF0 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		A54C358C2656FE13007678CD /* SiteScanMavsdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteScanMavsdk.swift; sourceTree = "<group>"; };
 		A54C359526571189007678CD /* SiteScanViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SiteScanViewModel.swift; sourceTree = "<group>"; };
@@ -76,7 +65,7 @@
 		A54C35C026584A91007678CD /* TelemetryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryDetailViewModel.swift; sourceTree = "<group>"; };
 		A55F21AB264DE55E00659CD9 /* PipView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipView.swift; sourceTree = "<group>"; };
 		A55F21B3264DE5BF00659CD9 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
-		A55F21BA264DE61600659CD9 /* Mavsdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mavsdk.swift; sourceTree = "<group>"; };
+		A55F21BA264DE61600659CD9 /* MavsdkDrone.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MavsdkDrone.swift; sourceTree = "<group>"; };
 		A55F21BF264DE65000659CD9 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		A55F21C7264E09BC00659CD9 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		A55F21CC264E0F8100659CD9 /* ActionList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionList.swift; sourceTree = "<group>"; };
@@ -88,8 +77,6 @@
 		A5F70B95264DDDC40017AFC1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5F70B98264DDDC40017AFC1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A5F70B9A264DDDC40017AFC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5F70B9F264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mavsdk-SwiftUI-ExampleTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A5F70BAA264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mavsdk-SwiftUI-ExampleUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5F744FE264F248B00A64432 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		A5F74503264F2B4E00A64432 /* PipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PipViewModel.swift; sourceTree = "<group>"; };
 		A5F74508264F39EE00A64432 /* TelemetryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelemetryView.swift; sourceTree = "<group>"; };
@@ -115,23 +102,19 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5F70B9C264DDDC40017AFC1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5F70BA7264DDDC40017AFC1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A4BB6D42269CF84600D23FEE /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				A4BB6D43269CF86100D23FEE /* ConnectionView.swift */,
+				A4BB6D46269D122900D23FEE /* ConnectionViewModel.swift */,
+				A4BB6D4A269D449C00D23FEE /* CommLinkView.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
 		A54C35832656FDD3007678CD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -173,8 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				A5F70B8E264DDDC20017AFC1 /* Mavsdk-SwiftUI-Example.app */,
-				A5F70B9F264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleTests.xctest */,
-				A5F70BAA264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -206,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				A5F70B93264DDDC20017AFC1 /* MainView.swift */,
+				A4BB6D42269CF84600D23FEE /* Connection */,
 				C5C7B5D9267BDB3E000BABFF /* Pip */,
 				C5C7B5D6267BDA9E000BABFF /* TelemetryDetail */,
 				C5C7B5D3267BDA6B000BABFF /* Map */,
@@ -264,7 +246,7 @@
 		C5C7B5C2267BD907000BABFF /* Mavsdk */ = {
 			isa = PBXGroup;
 			children = (
-				A55F21BA264DE61600659CD9 /* Mavsdk.swift */,
+				A55F21BA264DE61600659CD9 /* MavsdkDrone.swift */,
 			);
 			path = Mavsdk;
 			sourceTree = "<group>";
@@ -346,42 +328,6 @@
 			productReference = A5F70B8E264DDDC20017AFC1 /* Mavsdk-SwiftUI-Example.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A5F70B9E264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A5F70BB6264DDDC40017AFC1 /* Build configuration list for PBXNativeTarget "Mavsdk-SwiftUI-ExampleTests" */;
-			buildPhases = (
-				A5F70B9B264DDDC40017AFC1 /* Sources */,
-				A5F70B9C264DDDC40017AFC1 /* Frameworks */,
-				A5F70B9D264DDDC40017AFC1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A5F70BA1264DDDC40017AFC1 /* PBXTargetDependency */,
-			);
-			name = "Mavsdk-SwiftUI-ExampleTests";
-			productName = "Mavsdk-SwiftUI-ExampleTests";
-			productReference = A5F70B9F264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A5F70BA9264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A5F70BB9264DDDC40017AFC1 /* Build configuration list for PBXNativeTarget "Mavsdk-SwiftUI-ExampleUITests" */;
-			buildPhases = (
-				A5F70BA6264DDDC40017AFC1 /* Sources */,
-				A5F70BA7264DDDC40017AFC1 /* Frameworks */,
-				A5F70BA8264DDDC40017AFC1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A5F70BAC264DDDC40017AFC1 /* PBXTargetDependency */,
-			);
-			name = "Mavsdk-SwiftUI-ExampleUITests";
-			productName = "Mavsdk-SwiftUI-ExampleUITests";
-			productReference = A5F70BAA264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -393,14 +339,6 @@
 				TargetAttributes = {
 					A5F70B8D264DDDC20017AFC1 = {
 						CreatedOnToolsVersion = 12.2;
-					};
-					A5F70B9E264DDDC40017AFC1 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = A5F70B8D264DDDC20017AFC1;
-					};
-					A5F70BA9264DDDC40017AFC1 = {
-						CreatedOnToolsVersion = 12.2;
-						TestTargetID = A5F70B8D264DDDC20017AFC1;
 					};
 				};
 			};
@@ -422,8 +360,6 @@
 			projectRoot = "";
 			targets = (
 				A5F70B8D264DDDC20017AFC1 /* Mavsdk-SwiftUI-Example */,
-				A5F70B9E264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleTests */,
-				A5F70BA9264DDDC40017AFC1 /* Mavsdk-SwiftUI-ExampleUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -435,20 +371,6 @@
 			files = (
 				A5F70B99264DDDC40017AFC1 /* Preview Assets.xcassets in Resources */,
 				A5F70B96264DDDC40017AFC1 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5F70B9D264DDDC40017AFC1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5F70BA8264DDDC40017AFC1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,11 +389,12 @@
 				A54C35A3265755B0007678CD /* CameraView.swift in Sources */,
 				A55F21C8264E09BC00659CD9 /* MenuView.swift in Sources */,
 				A5F70B94264DDDC20017AFC1 /* MainView.swift in Sources */,
-				A55F21BB264DE61600659CD9 /* Mavsdk.swift in Sources */,
+				A55F21BB264DE61600659CD9 /* MavsdkDrone.swift in Sources */,
 				C5C7B5DF267BDC3A000BABFF /* VideoPlayerView.swift in Sources */,
 				A54C359626571189007678CD /* SiteScanViewModel.swift in Sources */,
 				A54C35B226583136007678CD /* MissionView.swift in Sources */,
 				A53C5F5A2658559B0076CFF0 /* MessageViewModel.swift in Sources */,
+				A4BB6D47269D122900D23FEE /* ConnectionViewModel.swift in Sources */,
 				A55F21B4264DE5BF00659CD9 /* MapView.swift in Sources */,
 				A5F7450E264F3A0900A64432 /* TelemetryViewModel.swift in Sources */,
 				A54C35A8265755C4007678CD /* CameraViewModel.swift in Sources */,
@@ -485,42 +408,17 @@
 				A5F70B92264DDDC20017AFC1 /* Mavsdk_SwiftUI_ExampleApp.swift in Sources */,
 				A5B1757C265882D60094E2D2 /* PlayerUIView.swift in Sources */,
 				A54C35C126584A91007678CD /* TelemetryDetailViewModel.swift in Sources */,
+				A4BB6D44269CF86100D23FEE /* ConnectionView.swift in Sources */,
 				A5FEFEFF26534E2E007A6FCC /* TelemetryDetailView.swift in Sources */,
 				A54C359B265712B3007678CD /* SurveyMission.swift in Sources */,
+				A4BB6D4B269D449C00D23FEE /* CommLinkView.swift in Sources */,
 				C5C7B5AF267BC1F4000BABFF /* MissionItemExtensions.swift in Sources */,
 				A55F21AC264DE55E00659CD9 /* PipView.swift in Sources */,
 				A5F744FF264F248B00A64432 /* MapViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A5F70B9B264DDDC40017AFC1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A5F70BA6264DDDC40017AFC1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A5F70BA1264DDDC40017AFC1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A5F70B8D264DDDC20017AFC1 /* Mavsdk-SwiftUI-Example */;
-			targetProxy = A5F70BA0264DDDC40017AFC1 /* PBXContainerItemProxy */;
-		};
-		A5F70BAC264DDDC40017AFC1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A5F70B8D264DDDC20017AFC1 /* Mavsdk-SwiftUI-Example */;
-			targetProxy = A5F70BAB264DDDC40017AFC1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A5F70BB1264DDDC40017AFC1 /* Debug */ = {
@@ -574,7 +472,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -629,7 +527,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -646,7 +544,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Mavsdk-SwiftUI-Example/Preview Content\"";
-				DEVELOPMENT_TEAM = JN72TL2C7V;
+				DEVELOPMENT_TEAM = 75Z67E6SV2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Mavsdk-SwiftUI-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -654,7 +552,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dou97183.Mavsdk-SwiftUI-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.Mavsdk-SwiftUI-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mavsdk-SwiftUI-Example/Helpers/FFMpeg/RtspClient-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -669,7 +567,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Mavsdk-SwiftUI-Example/Preview Content\"";
-				DEVELOPMENT_TEAM = JN72TL2C7V;
+				DEVELOPMENT_TEAM = 75Z67E6SV2;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Mavsdk-SwiftUI-Example/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -677,95 +575,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.dou97183.Mavsdk-SwiftUI-Example";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.esri.Mavsdk-SwiftUI-Example";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Mavsdk-SwiftUI-Example/Helpers/FFMpeg/RtspClient-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A5F70BB7264DDDC40017AFC1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6P29MLAXD8;
-				INFOPLIST_FILE = "Mavsdk-SwiftUI-ExampleTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.doug.Mavsdk-SwiftUI-ExampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mavsdk-SwiftUI-Example.app/Mavsdk-SwiftUI-Example";
-			};
-			name = Debug;
-		};
-		A5F70BB8264DDDC40017AFC1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6P29MLAXD8;
-				INFOPLIST_FILE = "Mavsdk-SwiftUI-ExampleTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.doug.Mavsdk-SwiftUI-ExampleTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mavsdk-SwiftUI-Example.app/Mavsdk-SwiftUI-Example";
-			};
-			name = Release;
-		};
-		A5F70BBA264DDDC40017AFC1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6P29MLAXD8;
-				INFOPLIST_FILE = "Mavsdk-SwiftUI-ExampleUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.doug.Mavsdk-SwiftUI-ExampleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Mavsdk-SwiftUI-Example";
-			};
-			name = Debug;
-		};
-		A5F70BBB264DDDC40017AFC1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 6P29MLAXD8;
-				INFOPLIST_FILE = "Mavsdk-SwiftUI-ExampleUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.doug.Mavsdk-SwiftUI-ExampleUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "Mavsdk-SwiftUI-Example";
 			};
 			name = Release;
 		};
@@ -786,24 +600,6 @@
 			buildConfigurations = (
 				A5F70BB4264DDDC40017AFC1 /* Debug */,
 				A5F70BB5264DDDC40017AFC1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A5F70BB6264DDDC40017AFC1 /* Build configuration list for PBXNativeTarget "Mavsdk-SwiftUI-ExampleTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A5F70BB7264DDDC40017AFC1 /* Debug */,
-				A5F70BB8264DDDC40017AFC1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A5F70BB9264DDDC40017AFC1 /* Build configuration list for PBXNativeTarget "Mavsdk-SwiftUI-ExampleUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A5F70BBA264DDDC40017AFC1 /* Debug */,
-				A5F70BBB264DDDC40017AFC1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
