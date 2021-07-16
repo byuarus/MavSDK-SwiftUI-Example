@@ -34,7 +34,7 @@ final class TelemetryViewModel: ObservableObject {
             .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (mode) in
-                self.flightMode = mode.toString()
+                self.flightMode = String(describing: mode)
             })
             .disposed(by: disposeBag)
         
@@ -50,8 +50,8 @@ final class TelemetryViewModel: ObservableObject {
             .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (position) in
-                self.droneCoordinate = String(format: "lat:%.8f\n long:%.8f", position.latitudeDeg, position.longitudeDeg)
-                self.droneAltitude = String(format: "absolute:%.2f\n relative:%.2f", position.absoluteAltitudeM, position.relativeAltitudeM)
+                self.droneCoordinate = String(format: "lat:%.8f\nlong:%.8f", position.latitudeDeg, position.longitudeDeg)
+                self.droneAltitude = String(format: "absolute:%.2f\nrelative:%.2f", position.absoluteAltitudeM, position.relativeAltitudeM)
             })
             .disposed(by: disposeBag)
         
@@ -59,7 +59,7 @@ final class TelemetryViewModel: ObservableObject {
             .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (attitudeEuler) in
-                self.attitudeEuler = String(format: "pitchDeg:%.2f\n yawDeg:%.2f", attitudeEuler.pitchDeg, attitudeEuler.yawDeg)
+                self.attitudeEuler = String(format: "pitchDeg:%.2f\nyawDeg:%.2f", attitudeEuler.pitchDeg, attitudeEuler.yawDeg)
             })
             .disposed(by: disposeBag)
         
@@ -67,7 +67,7 @@ final class TelemetryViewModel: ObservableObject {
             .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (cameraAttitudeEuler) in
-                self.attitudeEuler = String(format: "pitchDeg:%.2f\n yawDeg:%.2f", cameraAttitudeEuler.pitchDeg, cameraAttitudeEuler.yawDeg)
+                self.attitudeEuler = String(format: "pitchDeg:%.2f\nyawDeg:%.2f", cameraAttitudeEuler.pitchDeg, cameraAttitudeEuler.yawDeg)
             })
             .disposed(by: disposeBag)
         
@@ -83,7 +83,7 @@ final class TelemetryViewModel: ObservableObject {
             .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (gpsInfo) in
-                self.gpsInfo = String(format: "remainingPercent:%@\nnumSatellites:%d", String(describing: gpsInfo.fixType), gpsInfo.numSatellites)
+                self.gpsInfo = String(format: "fixType:%@\nnumSatellites:%d", String(describing: gpsInfo.fixType), gpsInfo.numSatellites)
             })
             .disposed(by: disposeBag)
         
@@ -91,7 +91,7 @@ final class TelemetryViewModel: ObservableObject {
             .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (healthAllOk) in
-                self.health = healthAllOk ? "Ok" : "Not OK"
+                self.health = healthAllOk ? "OK" : "Not OK"
             })
             .disposed(by: disposeBag)
         
@@ -102,47 +102,5 @@ final class TelemetryViewModel: ObservableObject {
                 self.landedState = String(describing: landedState)
             })
             .disposed(by: disposeBag)
-    }
-}
-
-extension Telemetry.FlightMode {
-    func toString() -> String {
-        var modeString = ""
-        switch self {
-        case .unknown:
-            modeString = "Unknown"
-        case .ready:
-            modeString = "Ready"
-        case .takeoff:
-            modeString = "Take Off"
-        case .hold:
-            modeString = "Hold"
-        case .mission:
-            modeString = "Mission"
-        case .returnToLaunch:
-            modeString = "RTL"
-        case .land:
-            modeString = "Land"
-        case .offboard:
-            modeString = "Offboard"
-        case .followMe:
-            modeString = "Follow Me"
-        case .UNRECOGNIZED(_):
-            modeString = "Unrecognized"
-        case .manual:
-            modeString = "Manual"
-        case .altctl:
-            modeString = "Altitude Control"
-        case .posctl:
-            modeString = "Position Control"
-        case .acro:
-            modeString = "Acro"
-        case .stabilized:
-            modeString = "Stabilized"
-        case .rattitude:
-            modeString = "Rattitude"
-        }
-        
-        return modeString
     }
 }

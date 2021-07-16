@@ -9,13 +9,24 @@ import SwiftUI
 
 struct CameraView: View {
     
-    var camera = CameraViewModel()
+    @ObservedObject var camera = CameraViewModel()
     
     var body: some View {
-        List(camera.actions, id: \.text) { action in
-            ButtonContent(text: action.text, action: action.action)
+        List() {
+            Section(header: Text("Subscriptions")) {
+                InfoRowView(title: "Mode", value: camera.mode)
+                InfoRowView(title: "Capture Info", value: camera.captureInfo)
+                InfoRowView(title: "Camera specs", value: camera.information)
+                InfoRowView(title: "Camera status", value: camera.status)
+            }
+            Section(header: Text("Camera Actions")) {
+                ForEach(camera.actions, id: \.text) { action in
+                    ButtonContent(text: action.text, action: action.action)
+                }
+            }
         }
-        .listStyle(PlainListStyle())        
+        .font(.system(size: 14, weight: .medium, design: .default))
+        .listStyle(PlainListStyle())
     }
 }
 

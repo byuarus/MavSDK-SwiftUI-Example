@@ -139,7 +139,7 @@ final class MissionViewModel: ObservableObject {
             .subscribeOn(MavScheduler)
             .observeOn(MainScheduler.instance)
             .subscribe {
-                self.messageViewModel.message = "RTL After Mission Enablec"
+                self.messageViewModel.message = "RTL After Mission Enabled"
             } onError: { (error) in
                 self.messageViewModel.message = "Error Enabling RTL After Mission"
             }

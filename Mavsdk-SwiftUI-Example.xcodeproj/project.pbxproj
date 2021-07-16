@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A45B205026A23822005492F8 /* InfoRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A45B204F26A23822005492F8 /* InfoRowView.swift */; };
 		A4BB6D44269CF86100D23FEE /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB6D43269CF86100D23FEE /* ConnectionView.swift */; };
 		A4BB6D47269D122900D23FEE /* ConnectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB6D46269D122900D23FEE /* ConnectionViewModel.swift */; };
 		A4BB6D4B269D449C00D23FEE /* CommLinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BB6D4A269D449C00D23FEE /* CommLinkView.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A45B204F26A23822005492F8 /* InfoRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRowView.swift; sourceTree = "<group>"; };
 		A4BB6D43269CF86100D23FEE /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		A4BB6D46269D122900D23FEE /* ConnectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionViewModel.swift; sourceTree = "<group>"; };
 		A4BB6D4A269D449C00D23FEE /* CommLinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommLinkView.swift; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A45B204E26A237E8005492F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A45B204F26A23822005492F8 /* InfoRowView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		A4BB6D42269CF84600D23FEE /* Connection */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 				C5C7B5C2267BD907000BABFF /* Mavsdk */,
 				C5C7B5BC267BD8BA000BABFF /* App */,
 				A54C35832656FDD3007678CD /* Helpers */,
+				A45B204E26A237E8005492F8 /* Views */,
 				A55F21B8264DE5F200659CD9 /* Models */,
 				A5F70B95264DDDC40017AFC1 /* Assets.xcassets */,
 				A5F70B9A264DDDC40017AFC1 /* Info.plist */,
@@ -410,6 +421,7 @@
 				A54C35C126584A91007678CD /* TelemetryDetailViewModel.swift in Sources */,
 				A4BB6D44269CF86100D23FEE /* ConnectionView.swift in Sources */,
 				A5FEFEFF26534E2E007A6FCC /* TelemetryDetailView.swift in Sources */,
+				A45B205026A23822005492F8 /* InfoRowView.swift in Sources */,
 				A54C359B265712B3007678CD /* SurveyMission.swift in Sources */,
 				A4BB6D4B269D449C00D23FEE /* CommLinkView.swift in Sources */,
 				C5C7B5AF267BC1F4000BABFF /* MissionItemExtensions.swift in Sources */,

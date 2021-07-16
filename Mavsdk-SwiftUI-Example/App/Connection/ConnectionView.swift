@@ -10,23 +10,22 @@ import SwiftUI
 struct ConnectionView: View {
     @ObservedObject var model = ConnectionViewModel()
     @ObservedObject var mavsdk = mavsdkDrone
-
+    
     var body: some View {
         List {
-            Section {
+            if mavsdk.serverStarted {
                 Button("Stop Mavsdk server")
                 {
                     mavsdk.stopServer()
                 }
-                .disabled(!mavsdk.serverStarted)
-            }
-            
-            Section(header: Text("Select comm link to connect")) {
-                CommLinkView(name: "Drone", uri: "udp://:14540")
-                CommLinkView(name: "Cloud Sim", uri: "tcp://3.80.232.118:5790")
+            } else {
+                Section(header: Text("Select comm link to connect")) {
+                    CommLinkView(name: "Drone", uri: "udp://:14540")
+                    CommLinkView(name: "Cloud Sim", uri: "tcp://3.80.232.118:5790")
+                }
             }
         }
-        .listStyle(GroupedListStyle())
+        .listStyle(PlainListStyle())
     }
 }
 

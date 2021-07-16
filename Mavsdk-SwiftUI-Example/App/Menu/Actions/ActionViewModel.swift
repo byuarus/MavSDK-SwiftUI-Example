@@ -30,9 +30,9 @@ final class ActionViewModel: ObservableObject {
     func armAction() {
         drone!.action.arm()
             .subscribe {
-                self.messageViewModel.message = "Armed"
+                self.messageViewModel.message = "Armed Success"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Arming"
+                self.messageViewModel.message = "Error Arming: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -40,9 +40,9 @@ final class ActionViewModel: ObservableObject {
     func disarmAction() {
         drone!.action.disarm()
             .subscribe {
-                self.messageViewModel.message = "Disarmed"
+                self.messageViewModel.message = "Disarmed Success"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Disarming"
+                self.messageViewModel.message = "Error Disarming: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -50,9 +50,9 @@ final class ActionViewModel: ObservableObject {
     func takeOffAction() {
         drone!.action.takeoff()
             .subscribe {
-                self.messageViewModel.message = "Taking Off"
+                self.messageViewModel.message = "Taking Off Success"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Taking Off"
+                self.messageViewModel.message = "Error Taking Off: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -60,9 +60,9 @@ final class ActionViewModel: ObservableObject {
     func landAction() {
         drone!.action.land()
             .subscribe {
-                self.messageViewModel.message = "Landing"
+                self.messageViewModel.message = "Landing Success"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Landing"
+                self.messageViewModel.message = "Error Landing: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -70,9 +70,9 @@ final class ActionViewModel: ObservableObject {
     func rtlAction() {
         drone!.action.returnToLaunch()
             .subscribe {
-                self.messageViewModel.message = "RTL"
+                self.messageViewModel.message = "RTL Success"
             } onError: { (error) in
-                self.messageViewModel.message = "Error RTL"
+                self.messageViewModel.message = "Error RTL: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -80,9 +80,9 @@ final class ActionViewModel: ObservableObject {
     func setRTLAltitude() {
         drone!.action.setReturnToLaunchAltitude(relativeAltitudeM: 40)
             .subscribe(onCompleted: {
-                self.messageViewModel.message = "Set RTL Altitude"
+                self.messageViewModel.message = "Set RTL Altitude 40m Success"
             }, onError: { (error) in
-                self.messageViewModel.message = "Error Setting RTL Altitude"
+                self.messageViewModel.message = "Error Setting RTL Altitude: \(error)"
             })
             .disposed(by: disposeBag)
     }

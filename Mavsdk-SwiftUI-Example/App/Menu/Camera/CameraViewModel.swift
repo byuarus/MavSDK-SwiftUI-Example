@@ -9,6 +9,11 @@ import Foundation
 import RxSwift
 
 final class CameraViewModel: ObservableObject {
+    @Published private(set) var captureInfo = "N/A"
+    @Published private(set) var mode = "N/A"
+    @Published private(set) var information = "N/A"
+    @Published private(set) var status = "N/A"
+    
     lazy var drone = mavsdkDrone.drone
     let messageViewModel = MessageViewModel.shared
     let disposeBag = DisposeBag()
@@ -29,14 +34,52 @@ final class CameraViewModel: ObservableObject {
         ]
     }
     
-    init() {}
+    init() {
+        observeCamera()
+    }
+    
+    func observeCamera() {
+        drone!.camera.captureInfo
+            .subscribeOn(MavScheduler)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (captureInfo) in
+                let message = "isSuccess:\(captureInfo.isSuccess), index:\(captureInfo.index)\nurl:\(captureInfo.fileURL)"
+                self.captureInfo = message
+                self.messageViewModel.message = message
+            })
+            .disposed(by: disposeBag)
+        
+        drone!.camera.mode
+            .subscribeOn(MavScheduler)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (mode) in
+                self.mode = String(describing: mode)
+            })
+            .disposed(by: disposeBag)
+        
+        drone!.camera.information
+            .subscribeOn(MavScheduler)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (information) in
+                self.information = "\(information.vendorName),\(information.modelName)\nfocalLength:\(information.focalLengthMm), \(information.verticalResolutionPx)/\(information.horizontalResolutionPx)"
+            })
+            .disposed(by: disposeBag)
+        
+        drone!.camera.status
+            .subscribeOn(MavScheduler)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { (status) in
+                self.status = "photoIntervalOn:\(status.photoIntervalOn), videoOn:\(status.videoOn)\nused/total Mib:\(status.usedStorageMib)/\(status.totalStorageMib)\n recordingTime:\(status.recordingTimeS)\nstorageStatus:\(String(describing: status.storageStatus))"
+            })
+            .disposed(by: disposeBag)
+    }
     
     func setPhotoMode() {
         drone!.camera.setMode(mode: .photo)
             .subscribe {
                 self.messageViewModel.message = "Set to Photo Mode"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Setting Photo Mode"
+                self.messageViewModel.message = "Error Setting Photo Mode: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -46,7 +89,7 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Set to Video Mode"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Setting Video Mode"
+                self.messageViewModel.message = "Error Setting Video Mode: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -56,17 +99,17 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Photo Taken"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Taking Photo"
+                self.messageViewModel.message = "Error Taking Photo: \(error)"
             }
             .disposed(by: disposeBag)
     }
     
     func starTakingPhotos() {
-        drone!.camera.startPhotoInterval(intervalS: 1.0)
+        drone!.camera.startPhotoInterval(intervalS: 2.0)
             .subscribe {
-                self.messageViewModel.message = "Start Taking Photos"
+                self.messageViewModel.message = "Start Taking Photos with 2 sec interval"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Starting Photo Interval"
+                self.messageViewModel.message = "Error Starting Photo Interval: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -76,7 +119,7 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Stop Taking Photos"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Stopping Photo Interval"
+                self.messageViewModel.message = "Error Stopping Photo Interval: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -86,7 +129,7 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Start Video Recording"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Starting Video Recording"
+                self.messageViewModel.message = "Error Starting Video Recording: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -96,7 +139,7 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Stop Video Recording"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Stopping Video Recording"
+                self.messageViewModel.message = "Error Stopping Video Recording: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -106,7 +149,7 @@ final class CameraViewModel: ObservableObject {
             .do(onSuccess: { (captureInfo) in
                 self.messageViewModel.message = "List Count \(captureInfo.count)"
             }, onError: { (error) in
-                self.messageViewModel.message = "Error Getting List"
+                self.messageViewModel.message = "Error Getting List: \(error)"
             },  onSubscribe: {
                 self.messageViewModel.message = "Getting List of Photos"
             })
@@ -119,7 +162,7 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Format Storage"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Formatting Storage"
+                self.messageViewModel.message = "Error Formatting Storage: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -129,7 +172,7 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Start Video Streaming"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Starting Video Streaming"
+                self.messageViewModel.message = "Error Starting Video Streaming: \(error)"
             }
             .disposed(by: disposeBag)
     }
@@ -139,7 +182,7 @@ final class CameraViewModel: ObservableObject {
             .subscribe {
                 self.messageViewModel.message = "Stop Video Streaming"
             } onError: { (error) in
-                self.messageViewModel.message = "Error Stopping Video Streaming"
+                self.messageViewModel.message = "Error Stopping Video Streaming: \(error)"
             }
             .disposed(by: disposeBag)
     }

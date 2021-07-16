@@ -23,6 +23,7 @@ struct MenuView: View {
                     Image(systemName: "chevron.up").tag(5)
                 })
                 .pickerStyle(SegmentedPickerStyle())
+                .padding()
             }
             
             switch selectedTabIndex {

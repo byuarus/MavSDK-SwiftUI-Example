@@ -14,14 +14,14 @@ struct TelemetryView: View {
     
     var body: some View {
         List {
-            TelemetryRow(title: "Flight Mode", value: telemetryViewModel.flightMode)
-            TelemetryRow(title: "Armed", value: telemetryViewModel.armed)
-            TelemetryRow(title: "Location", value: telemetryViewModel.droneCoordinate)
-            TelemetryRow(title: "Altitude", value: telemetryViewModel.droneAltitude)
-            TelemetryRow(title: "Attitude", value: telemetryViewModel.attitudeEuler)
-            TelemetryRow(title: "Camera Attitude", value: telemetryViewModel.cameraAttitudeEuler)
-            TelemetryRow(title: "GPS Info", value: telemetryViewModel.gpsInfo)
-            TelemetryRow(title: "Landed State", value: telemetryViewModel.landedState)
+            InfoRowView(title: "Flight Mode", value: telemetryViewModel.flightMode)
+            InfoRowView(title: "Armed", value: telemetryViewModel.armed)
+            InfoRowView(title: "Location", value: telemetryViewModel.droneCoordinate)
+            InfoRowView(title: "Altitude", value: telemetryViewModel.droneAltitude)
+            InfoRowView(title: "Attitude", value: telemetryViewModel.attitudeEuler)
+            InfoRowView(title: "Camera Attitude", value: telemetryViewModel.cameraAttitudeEuler)
+            InfoRowView(title: "GPS Info", value: telemetryViewModel.gpsInfo)
+            InfoRowView(title: "Landed State", value: telemetryViewModel.landedState)
         }
         .font(.system(size: 14, weight: .medium, design: .default))
         .listStyle(PlainListStyle())
@@ -34,20 +34,5 @@ struct TelemetryView_Previews: PreviewProvider {
             TelemetryView()
                 .previewLayout(.fixed(width: 896, height: 100))
         }
-    }
-}
-
-struct TelemetryRow: View {
-    let title: String
-    let value: String
-    
-    var body: some View {
-        HStack {
-            Text(title)
-            Spacer()
-            Text(value)
-                .foregroundColor(.gray)
-        }
-        .padding()
     }
 }
