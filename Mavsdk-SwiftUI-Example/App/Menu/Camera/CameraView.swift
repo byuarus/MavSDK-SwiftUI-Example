@@ -10,6 +10,7 @@ import SwiftUI
 struct CameraView: View {
     
     @ObservedObject var camera = CameraViewModel()
+    let cameraSettingsView = CameraSettingsView()
     
     var body: some View {
         List() {
@@ -18,6 +19,11 @@ struct CameraView: View {
                 InfoRowView(title: "Capture Info", value: camera.captureInfo)
                 InfoRowView(title: "Camera specs", value: camera.information)
                 InfoRowView(title: "Camera status", value: camera.status)
+            }
+            Section(header: Text("Camera Setttings")) {
+                NavigationLink("Camera Setttings",
+                               destination: cameraSettingsView)
+                    .isDetailLink(false)
             }
             Section(header: Text("Camera Actions")) {
                 ForEach(camera.actions, id: \.text) { action in
